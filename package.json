@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:wc": "vite build --config vite.wc.config.ts",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "storybook": "storybook dev -p 6006",
