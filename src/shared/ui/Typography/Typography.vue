@@ -18,7 +18,6 @@ const tagMap: Record<Variant, string> = {
 interface Props {
   variant?: Variant
   as?: string
-  class?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -26,7 +25,7 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const tag = computed(() => props.as || tagMap[props.variant ?? 'body'])
-const classes = computed(() => `${styles[props.variant ?? 'body']} ${props.class || ''}`.trim())
+const classes = computed(() => styles[props.variant ?? 'body'])
 </script>
 
 <template>
