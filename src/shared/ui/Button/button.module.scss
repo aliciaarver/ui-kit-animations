@@ -1,0 +1,108 @@
+.button {
+  padding: 10px 20px;
+  background: #66a6ee;
+  color: #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.primary {
+  border: 1px solid transparent;
+
+  &:hover {
+    border: 1px solid #ffffff;
+    animation-delay: 0.5s;
+    // text-shadow: 0 0 10px #ffffff;
+    animation: rotate 1s infinite ease-in-out alternate;
+  }
+}
+@keyframes rotate {
+  0% {
+    text-shadow: 0 0 10px #ffffff;
+  }
+  50% {
+    text-shadow: 0 0 15px #ffffff;
+  }
+}
+.disabled {
+  background: #9e9e9e;
+  color: #fff;
+  cursor: not-allowed;
+}
+
+.gradient.disabled {
+  background: linear-gradient(to bottom, #e2e2e2 4%, #9e9e9e 35%, #2d2d2d 100%);
+}
+
+.gradient {
+  background: linear-gradient(to bottom, #78cbff 4%, #66a6ee 35%, #0049af 100%);
+  background-position: 0% 0%;
+
+  &:hover:not(.disabled) {
+    background-size: 100% 130%;
+    animation: gradientWave 1s infinite ease-in-out alternate;
+
+    .particle {
+      animation-play-state: running;
+      opacity: 1;
+    }
+  }
+}
+
+.particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  display: block;
+  z-index: -1;
+}
+
+.particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.5px;
+  height: 0.5px;
+  background: #ffffff;
+  border-radius: 50%;
+  animation-play-state: paused;
+  opacity: 0;
+  transition: all 0.3s ease;
+
+  @for $i from 1 through 100 {
+    $x1: random(111) - 51;
+    $y1: random(80) - 40;
+    $x2: random(60) - 30;
+    $y2: random(60) - 30;
+    $opacity: random(10) / 10;
+
+    &:nth-child(#{$i}) {
+      animation: particleMove-#{$i} 5s ease-in-out $i * 0.1s infinite;
+    }
+    @keyframes particleMove-#{$i} {
+      0%,
+      100% {
+        transform: translate(#{$x1}px, #{$y1}px);
+      }
+      50% {
+        transform: translate(#{$x2}px, #{$y2}px);
+      }
+    }
+  }
+}
+
+@keyframes gradientWave {
+  0%,
+  100% {
+    background-position: 100% 100%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+}

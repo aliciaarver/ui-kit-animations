@@ -1,6 +1,8 @@
 import type { Preview } from '@storybook/react-vite';
 import { themes } from 'storybook/theming';
 
+import '../src/shared/styles/reset.scss';
+
 const preview: Preview = {
   parameters: {
     docs: {
