@@ -1,0 +1,110 @@
+$box-size: 18px;
+$border-radius: 4px;
+$transition: 0.2s ease;
+
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
+
+  &.hasError .box {
+    border-color: $color-error;
+  }
+}
+
+.input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+
+  &:checked + .box {
+    background-color: $color-primary;
+    border-color: $color-primary;
+
+    &::after {
+      opacity: 1;
+      transform: rotate(45deg) scale(1);
+    }
+  }
+
+  &:focus-visible + .box {
+    outline: 2px solid $color-primary;
+    outline-offset: 2px;
+  }
+}
+
+.box {
+  position: relative;
+  flex-shrink: 0;
+  width: $box-size;
+  height: $box-size;
+  border: 1.5px solid $color-light-300;
+  border-radius: $border-radius;
+  background-color: transparent;
+  transition:
+    background-color $transition,
+    border-color $transition;
+  box-sizing: border-box;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 10px;
+    border: 2px solid $color-dark-100;
+    border-top: none;
+    border-left: none;
+    opacity: 0;
+    transform: rotate(45deg) scale(0.6);
+    transition:
+      opacity $transition,
+      transform $transition;
+  }
+
+  &.indeterminate {
+    background-color: $color-primary;
+    border-color: $color-primary;
+
+    &::after {
+      top: 50%;
+      left: 3px;
+      width: 10px;
+      height: 0;
+      border: none;
+      border-top: 2px solid $color-dark-100;
+      opacity: 1;
+      transform: translateY(-50%) scale(1);
+    }
+  }
+}
+
+.text {
+  font-family: $font-main;
+  font-size: 14px;
+  line-height: 1.4;
+  color: $color-light-200;
+}
+
+.errorMsg {
+  font-family: $font-main;
+  font-size: 12px;
+  color: $color-error;
+  padding-left: 28px;
+}
