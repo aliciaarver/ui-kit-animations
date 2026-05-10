@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 import styles from './inputWrapper.module.scss';
 
-import { Typography } from '../Typography';
+import { Typography } from '../Typography/Typography';
 import { InputSize, InputVariant } from './types';
 
 export interface InputWrapperProps {
