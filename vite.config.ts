@@ -27,7 +27,7 @@ export default defineConfig(({ mode }) => ({
       },
       outDir: 'dist/web-components',
       rollupOptions: {
-        external: [],
+        external: ['react', 'react-dom'],
       },
     },
   }),

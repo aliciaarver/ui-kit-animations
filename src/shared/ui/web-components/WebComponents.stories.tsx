@@ -25,23 +25,23 @@ import './index';
 const WebComponentsDoc = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 24, padding: 32 }}>
     <div>
-      <p style={{ color: '#888', marginBottom: 8 }}>xopa-input</p>
+      <p style={{ opacity: 0.5, marginBottom: 8 }}>xopa-input</p>
       <xopa-input label="Email" placeholder="example@mail.com" />
     </div>
     <div>
-      <p style={{ color: '#888', marginBottom: 8 }}>xopa-input (error)</p>
+      <p style={{ opacity: 0.5, marginBottom: 8 }}>xopa-input (error)</p>
       <xopa-input label="Email" placeholder="example@mail.com" error="Неверный формат" />
     </div>
     <div>
-      <p style={{ color: '#888', marginBottom: 8 }}>xopa-input (disabled)</p>
+      <p style={{ opacity: 0.5, marginBottom: 8 }}>xopa-input (disabled)</p>
       <xopa-input label="Имя" placeholder="Заблокировано" disabled />
     </div>
     <div>
-      <p style={{ color: '#888', marginBottom: 8 }}>xopa-input-password</p>
+      <p style={{ opacity: 0.5, marginBottom: 8 }}>xopa-input-password</p>
       <xopa-input-password label="Пароль" placeholder="Введите пароль" />
     </div>
     <div>
-      <p style={{ color: '#888', marginBottom: 8 }}>xopa-input-password (error)</p>
+      <p style={{ opacity: 0.5, marginBottom: 8 }}>xopa-input-password (error)</p>
       <xopa-input-password label="Пароль" error="Пароль слишком короткий" />
     </div>
   </div>
