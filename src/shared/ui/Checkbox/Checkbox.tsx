@@ -1,4 +1,4 @@
-import { forwardRef, useId, type InputHTMLAttributes } from 'react';
+import React, { forwardRef, useEffect, useId, useRef, type InputHTMLAttributes } from 'react';
 
 import clsx from 'clsx';
 
@@ -13,6 +13,19 @@ export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
   ({ label, indeterminate = false, error, disabled, className, ...rest }, ref) => {
     const id = useId();
+    const innerRef = useRef<HTMLInputElement>(null);
+
+    const setRef = (el: HTMLInputElement | null) => {
+      (innerRef as React.MutableRefObject<HTMLInputElement | null>).current = el;
+      if (typeof ref === 'function') ref(el);
+      else if (ref) (ref as React.MutableRefObject<HTMLInputElement | null>).current = el;
+    };
+
+    useEffect(() => {
+      if (innerRef.current) {
+        innerRef.current.indeterminate = indeterminate;
+      }
+    }, [indeterminate]);
 
     return (
       <div className={clsx(styles.wrapper, className)}>
@@ -24,7 +37,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           })}
         >
           <input
-            ref={ref}
+            ref={setRef}
             id={id}
             type="checkbox"
             className={styles.input}
