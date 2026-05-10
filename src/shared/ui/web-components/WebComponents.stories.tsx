@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import './index';
+import './custom-elements';
 
 /**
  * Web Components обёртки для Vue-консьюмеров.
