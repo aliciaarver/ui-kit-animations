@@ -25,3 +25,8 @@ dist-ssr
 
 *storybook.log
 storybook-static
+
+# tech-lead artifacts
+.tech-lead-dismissed.json
+.tech-lead-history/
+TECH-LEAD.md
