@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:web-components": "tsc -b && vite build --mode web-components",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "storybook": "storybook dev -p 6006",
@@ -15,6 +16,7 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@r2wc/react-to-web-component": "^2.0.3",
     "clsx": "^2.1.1",
     "iconoir-react": "^7.11.0",
     "lucide-react": "^0.511.0",
